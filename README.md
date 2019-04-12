@@ -1,12 +1,12 @@
-# Unit 3: Interactive Form
+# Unit 5: Public API Requests
 
-##### _Uses Object Oriented Programing to Create a Game Show App_
+##### _An app that uses the Random User Generator API to grab information and use that data to build a an employee directory._
 
 #### By **Mary Robin Rose**
 
 ## Description
 
-_This project is a browser-based word guessing game using OOP. _
+_This project uses JavaScript to create an employee directory by communicating with a third-party API (Application Programming Interface)._
 
 ## Setup And Installation
 
