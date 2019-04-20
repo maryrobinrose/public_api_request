@@ -1,10 +1,32 @@
-//Search
-/*<form action="#" method="get">
+/******************************************
+Treehouse Techdegree:
+FSJS project 5 - Public API Requests
+******************************************/
+
+//*** AJAX ***//
+//Does this need to be in a function?
+//Use AJAX to call the Random User Generator API
+$.ajax({
+  url: 'https://randomuser.me/api/',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+  }
+});
+
+//Call function?^
+
+
+//*** Search ***//
+//Select HTML markup from HTML
+const search = `<form action="#" method="get">
     <input type="search" id="search-input" class="search-input" placeholder="Search...">
     <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
-</form>*/
+    </form>`;
+//Append to the page
+document.querySelector('.search-container').innerHTML = search;
 
-
+//*** Users ***//
 //Get and display 12 random users
 /*<div class="card">
     <div class="card-img-container">
