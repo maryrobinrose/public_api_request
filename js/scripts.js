@@ -6,29 +6,34 @@ FSJS project 5 - Public API Requests
 //*** AJAX ***//
 //Does this need to be in a function?
 //Use AJAX to call the Random User Generator API
-$.ajax({
-  url: 'https://randomuser.me/api/',
-  dataType: 'json',
-  success: function(data) {
-    console.log(data);
-  }
-});
+function ajax() {
+    $.ajax({
+      url: 'https://randomuser.me/api/',
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+      }
+    });
+}
+ajax();
 
 //Call function?^
 
 
 //*** Search ***//
-//Select HTML markup from HTML
+//Select HTML markup from index.html
 const search = `<form action="#" method="get">
     <input type="search" id="search-input" class="search-input" placeholder="Search...">
     <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
-    </form>`;
+  </form>`;
+
 //Append to the page
 document.querySelector('.search-container').innerHTML = search;
 
 //*** Users ***//
 //Get and display 12 random users
-/*<div class="card">
+//Select HTML markup from index.html
+const gallery = `<div class="card">
     <div class="card-img-container">
         <img class="card-img" src="https://placehold.it/90x90" alt="profile picture">
     </div>
@@ -37,7 +42,10 @@ document.querySelector('.search-container').innerHTML = search;
         <p class="card-text">email</p>
         <p class="card-text cap">city, state</p>
     </div>
-</div>*/
+</div>`;
+
+//Append to the page
+document.querySelector('.gallery').innerHTML = gallery;
 
 //Create modal window
 /*<div class="modal-container">
