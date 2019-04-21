@@ -23,7 +23,7 @@ If you have any issues or questions, please email me at maryrobinrose@gmail.com.
 
 ## Technologies Used
 
-This project was created with HTML, CSS and JavaScript.
+This project was created with HTML, CSS, JavaScript and jQuery.
 
 ## Legal
 
