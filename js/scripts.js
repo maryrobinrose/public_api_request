@@ -4,12 +4,13 @@ FSJS project 5 - Public API Requests
 ******************************************/
 
 //*** AJAX ***//
-//Does this need to be in a function?
 //Use AJAX to call the Random User Generator API
 function ajax() {
     $.ajax({
+      //Grabs 12 users
       url: 'https://randomuser.me/api/?results=12',
       dataType: 'json',
+      //Callback function
       success: function(data) {
         console.log(data);
         fetchData(data);
@@ -17,7 +18,6 @@ function ajax() {
     });
 }
 ajax();
-//Call function?^
 
 
 //*** Search ***//
@@ -34,7 +34,8 @@ document.querySelector('.search-container').innerHTML = search;
 //Get and display users
 function fetchData(data) {
   //Loop over Users
-  $.each(data.items,function() {
+  $.each(data,function(index, value) {
+    console.log(index, value);
     //Select HTML markup from index.html
     const gallery = `<div class="card">
         <div class="card-img-container">
