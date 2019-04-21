@@ -21,17 +21,6 @@ function ajax() {
 ajax();
 
 
-//*** Search ***//
-//Select HTML markup from index.html
-const search = `<form action="#" method="get">
-    <input type="search" id="search-input" class="search-input" placeholder="Search...">
-    <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
-  </form>`;
-
-//Append to the page
-document.querySelector('.search-container').innerHTML = search;
-
-
 //*** Users ***//
 //Get and display users
 function fetchData(data) {
