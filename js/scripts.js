@@ -12,7 +12,7 @@ function ajax() {
       dataType: 'json',
       //Callback function
       success: function(data) {
-        console.log(data);
+        //Call function to display users
         fetchData(data);
       }
     });
@@ -35,16 +35,15 @@ document.querySelector('.search-container').innerHTML = search;
 function fetchData(data) {
   //Loop over Users
   $.each(data.results, function(i, user) {
-    console.log(i, user);
-    //Select HTML markup from index.html
+    //Select HTML markup from index.html, use template strings ${} to insert user info
     const gallery = `<div class="card">
         <div class="card-img-container">
-            <img class="card-img" src="https://placehold.it/90x90" alt="profile picture">
+            <img class="card-img" src="${data.results[i].picture.large}" alt="profile picture">
         </div>
         <div class="card-info-container">
-            <h3 id="name" class="card-name cap">${data.results[i].name.first} last</h3>
-            <p class="card-text">email</p>
-            <p class="card-text cap">city, state</p>
+            <h3 id="name" class="card-name cap">${data.results[i].name.first} ${data.results[i].name.last}</h3>
+            <p class="card-text">${data.results[i].email}</p>
+            <p class="card-text cap">${data.results[i].location.city}, ${data.results[i].location.state}</p>
         </div>
     </div>`;
 
@@ -53,28 +52,10 @@ function fetchData(data) {
   }); //end each
 }
 
-  /*fetch('https://randomuser.me/api/')
-    .then(checkStatus)
-    //Takes response object and converts it to JSON (Promise)
-    .then(response => response.json())
-    //Catches a return error
-    .catch(error => console.log('Looks like there was a problem', error))
-}
-
-//Helper Function
-function checkStatus(response) {
-  //If the response comes back working
-  if (response.ok) {
-    return response.resolve()
-  } else {
-    //If the response fails
-    return response.reject(new Error(response.statusText));
-  }*/
 
 
 
-
-
+//*** Modal ***//
 //Create modal window
 const modal = `<div class="modal-container">
     <div class="modal">
