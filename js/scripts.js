@@ -34,22 +34,22 @@ document.querySelector('.search-container').innerHTML = search;
 //Get and display users
 function fetchData(data) {
   //Loop over Users
-  $.each(data,function(index, value) {
-    console.log(index, value);
+  $.each(data.results, function(i, user) {
+    console.log(i, user);
     //Select HTML markup from index.html
     const gallery = `<div class="card">
         <div class="card-img-container">
             <img class="card-img" src="https://placehold.it/90x90" alt="profile picture">
         </div>
         <div class="card-info-container">
-            <h3 id="name" class="card-name cap">first last</h3>
+            <h3 id="name" class="card-name cap">${data.results[i].name.first} last</h3>
             <p class="card-text">email</p>
             <p class="card-text cap">city, state</p>
         </div>
     </div>`;
 
     //Append to the page
-    document.querySelector('.gallery').innerHTML = gallery;
+    document.querySelector('.gallery').innerHTML += gallery;
   }); //end each
 }
 
