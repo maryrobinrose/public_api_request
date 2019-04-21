@@ -38,7 +38,7 @@ function fetchData(data) {
     //Select HTML markup from index.html, use template strings ${} to insert user info
     const gallery = `<div class="card">
         <div class="card-img-container">
-            <img class="card-img" src="${data.results[i].picture.large}" alt="profile picture">
+            <img class="card-img" src="${data.results[i].picture.large}" alt="${data.results[i].name.first} ${data.results[i].name.last}">
         </div>
         <div class="card-info-container">
             <h3 id="name" class="card-name cap">${data.results[i].name.first} ${data.results[i].name.last}</h3>
@@ -49,14 +49,12 @@ function fetchData(data) {
 
     //Append to the page
     document.querySelector('.gallery').innerHTML += gallery;
-  }); //end each
+  });
 }
 
 
-
-
 //*** Modal ***//
-//Create modal window
+//Select HTML markup from index.html, add span for close button
 const modal = `<div class="modal-container">
     <div class="modal">
         <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -69,6 +67,30 @@ const modal = `<div class="modal-container">
             <p class="modal-text">(555) 555-5555</p>
             <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
             <p class="modal-text">Birthday: 10/21/2015</p>
+            <span class="modal-close-btn">&times;</span>
         </div>
     </div>`;
-    //Make sure there’s a way to close the modal window
+
+//This section created with help from https://www.w3schools.com/howto/howto_css_modals.asp
+//Select the card div that opens the modal
+const card = document.querySelectorAll(".card");
+
+//Select <span> element that closes the modal
+const span = document.querySelectorAll(".modal-close-btn");
+
+//When the user clicks on a card, open the modal
+card.onclick = function() {
+  modal.style.display = "block";
+}
+
+//When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+//When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
