@@ -71,9 +71,10 @@ function makeModal(data) {
               <p class="modal-text">${data.results[i].email}</p>
               <p class="modal-text cap">${data.results[i].location.city}</p>
               <hr>
-              <p class="modal-text">${data.results[i].cell}</p>
-              <p class="modal-text">${data.results[i].location.street}, ${data.results[i].location.city}, ${data.results[i].location.state} ${data.results[i].location.postcode}</p>
-              <p class="modal-text">Birthday: ${data.results[i].dob.date.slice(0,10)}</p>
+              <p class="modal-text">${data.results[i].location.street}</p>
+              <p class="modal-text">${data.results[i].location.city}, ${data.results[i].location.state} ${data.results[i].location.postcode}</p>
+              <p class="modal-text">cell: ${data.results[i].cell}</p>
+              <p class="modal-text">birthday: ${data.results[i].dob.date.slice(0,10)}</p>
           </div>
       </div>`;
 
@@ -83,9 +84,7 @@ function makeModal(data) {
     //When the user clicks (x), close the modal
     $('.modal-close-btn').on('click', function() {
       //Removes modal box
-      $('.modal').remove();
-      //Removes shadow with modal
-      $('.modal-container').remove();
+      $('.modal-container').hide();
     });
   });
 }
