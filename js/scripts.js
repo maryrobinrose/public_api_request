@@ -85,7 +85,7 @@ function makeModal(data) {
       //Removes modal box
       $('.modal').remove();
       //Removes shadow with modal
-      $().
+      $('.modal-container').remove();
     });
   });
 }
