@@ -30,10 +30,11 @@ const search = `<form action="#" method="get">
 //Append to the page
 document.querySelector('.search-container').innerHTML = search;
 
+
 //*** Users ***//
 //Get and display users
 function fetchData(data) {
-  //Loop over Users
+  //Loop over users
   $.each(data.results, function(i, user) {
     //Select HTML markup from index.html, use template strings ${} to insert user info
     const gallery = `<div class="card">
@@ -54,43 +55,40 @@ function fetchData(data) {
 
 
 //*** Modal ***//
-//Select HTML markup from index.html, add span for close button
-const modal = `<div class="modal-container">
-    <div class="modal">
-        <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
-        <div class="modal-info-container">
-            <img class="modal-img" src="https://placehold.it/125x125" alt="profile picture">
-            <h3 id="name" class="modal-name cap">name</h3>
-            <p class="modal-text">email</p>
-            <p class="modal-text cap">city</p>
-            <hr>
-            <p class="modal-text">(555) 555-5555</p>
-            <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
-            <p class="modal-text">Birthday: 10/21/2015</p>
-            <span class="modal-close-btn">&times;</span>
-        </div>
-    </div>`;
+//Create model to pop up when clicked
+function makeModal(data) {
+  $('.card').onclick = function() {
+  //Select index of each card
+  let i = $('.card').index(this);
+  //Select HTML markup from index.html, add span for close button
+  const modal = `<div class="modal-container">
+      <div class="modal">
+          <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+          <div class="modal-info-container">
+              <img class="modal-img" src="https://placehold.it/125x125" alt="profile picture">
+              <h3 id="name" class="modal-name cap">name</h3>
+              <p class="modal-text">email</p>
+              <p class="modal-text cap">city</p>
+              <hr>
+              <p class="modal-text">(555) 555-5555</p>
+              <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
+              <p class="modal-text">Birthday: 10/21/2015</p>
+          </div>
+      </div>`;
 
-//This section created with help from https://www.w3schools.com/howto/howto_css_modals.asp
-//Select the card div that opens the modal
-const card = document.querySelectorAll(".card");
+    //Append to the page
+    document.querySelector('body').innerHTML += modal;
 
-//Select <span> element that closes the modal
-const span = document.querySelectorAll(".modal-close-btn");
+    //When the user clicks (x), close the modal
+    $('.modal-close-btn').onclick = function() {
+      $('.modal').remove();
+    }
 
-//When the user clicks on a card, open the modal
-card.onclick = function() {
-  modal.style.display = "block";
-}
-
-//When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-//When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+    //When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   }
 }
