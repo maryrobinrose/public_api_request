@@ -71,9 +71,9 @@ function makeModal(data) {
               <p class="modal-text">${data.results[i].email}</p>
               <p class="modal-text cap">${data.results[i].location.city}</p>
               <hr>
-              <p class="modal-text">${data.results[i].phone}</p>
+              <p class="modal-text">${data.results[i].cell}</p>
               <p class="modal-text">${data.results[i].location.street}, ${data.results[i].location.city}, ${data.results[i].location.state} ${data.results[i].location.postcode}</p>
-              <p class="modal-text">Birthday: ${data.results[i].dob.date}</p>
+              <p class="modal-text">Birthday: ${data.results[i].dob.date.slice(0,10)}</p>
           </div>
       </div>`;
 
