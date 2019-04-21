@@ -14,6 +14,7 @@ function ajax() {
       success: function(data) {
         //Call function to display users
         fetchData(data);
+        makeModal(data);
       }
     });
 }
@@ -57,7 +58,7 @@ function fetchData(data) {
 //*** Modal ***//
 //Create model to pop up when clicked
 function makeModal(data) {
-  $('.card').onclick = function() {
+  $('.card').on('click', function() {
   //Select index of each card
   let i = $('.card').index(this);
   //Select HTML markup from index.html, add span for close button
@@ -80,15 +81,11 @@ function makeModal(data) {
     document.querySelector('body').innerHTML += modal;
 
     //When the user clicks (x), close the modal
-    $('.modal-close-btn').onclick = function() {
+    $('.modal-close-btn').on('click', function() {
+      //Removes modal box
       $('.modal').remove();
-    }
-
-    //When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  }
+      //Removes shadow with modal
+      $().
+    });
+  });
 }
