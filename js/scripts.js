@@ -74,6 +74,7 @@ function makeModal(data) {
     $('.modal-close-btn').on('click', function() {
       //Removes modal box
       $('.modal-container').hide();
+      makeModal(data);
     });
   });
 }
