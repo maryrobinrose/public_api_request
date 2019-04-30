@@ -4,6 +4,10 @@
 
 #### By **Mary Robin Rose**
 
+## Live Link
+
+https://maryrobinrose.github.io/public_api_request
+
 ## Description
 
 _This project uses JavaScript to create an employee directory by communicating with a third-party API (Application Programming Interface)._
